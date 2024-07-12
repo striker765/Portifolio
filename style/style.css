@@ -1,0 +1,829 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* -----------------------Variáveis----------------------------------------------------------- */
+
+:root {
+    --cor-principal: #000000;
+    --cor-principal-hover: #303030;
+    --cor-secundaria: #f10c0c;
+    --cor-hover: #f01111;
+    --cor-animation: #460101;
+    --cor-texto: #EEEEEE;
+    --montserrat: "Montserrat", "sans-serif";
+}
+
+
+/* -----------------------Configuração incial do site------------------------------------------ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--cor-principal);
+    font-family: "consolas", "sans-serif";
+    color: var(--cor-texto);
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+/* -----------------------Barra de navegação--------------------------------------------------- */
+
+.container {
+    /* border: 1px solid red; */
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.container__nav {
+    /* border: 1px solid red; */
+    width: 60%;
+    height: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container__nav__botao {
+    width: 13%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "consolas", sans-serif;
+    text-decoration: none;
+    color: var(--cor-texto);
+    position: relative;
+    transition: color 0.5s;
+    animation: slideTop .5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+/* -----------------------Barra de navegação: Animação------------------------------------------ */
+
+.container__nav__botao::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: var(--cor-texto);
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s, background-color 0.5s;
+}
+
+.container__nav__botao:hover {
+    color: var(--cor-hover);
+}
+
+.container__nav__botao:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+    background-color: var(--cor-hover);
+}
+
+/* -----------------------Seção Apresentação com video------------------------------------------ */
+
+.videoBG {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    z-index: 0;
+}
+
+.background__section {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.background__section video {
+    width: 100%;
+    height: 85%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.9;
+}
+
+.background__section__texto {
+    width: 50%;
+    height: 85%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 0 0 25%;
+    gap: 30px;
+}
+
+.texto__mobile {
+    opacity: 0;
+    font-size: 1px;
+}
+
+strong {
+    font-family: "consolas", "sans-serif";
+    color: var(--cor-texto);
+    font-size: 2.18rem;
+}
+
+/* -----------------------Script typerJS-------------------------------------------------------- */
+
+.typer {
+    font-family: "consolas", "sans-serif";
+    color: var(--cor-secundaria);
+    font-size: 3.12rem;
+}
+
+/* -----------------------Seção Quem sou eu?---------------------------------------------------- */
+
+.about {
+    /* border: 1px solid red; */
+    width: 100vw;
+    height: 100vh;
+    background: var(--cor-principal);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* -----------------------Seção Quem sou eu? <Texto>-------------------------------------------- */
+
+.about__texto {
+    /* border: 1px solid red; */
+    width: 40vw;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-end;
+
+}
+
+.about__texto__posicao {
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.about__texto__posicao__pai {
+    width: 100%;
+    /* background: #737500; */
+    display: flex;
+    justify-content: space-evenly;
+    margin: 30px 0 0 0;
+}
+
+.about__texto__posicao__link {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(var(--cor-animation), var(--cor-secundaria));
+    border-radius: 20%;
+    font-size: 35px;
+    text-decoration: none;
+    z-index: 1;
+}
+
+.about__texto__posicao__link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(var(--cor-animation), var(--cor-secundaria));
+    border-radius: 20%;
+    z-index: -1;
+    transition: .5s ease;
+}
+
+.about__texto__posicao__link:hover::before {
+    filter: blur(10px);
+}
+
+.about__texto__posicao__link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--cor-principal);
+    border-radius: 20%;
+    transform: scale(.88);
+    z-index: -1;
+    transition: .2s ease;
+}
+
+.about__texto__posicao__link:hover::after {
+    transform: scale(0);
+}
+
+/* -----------------------Seção Quem sou eu? <Foto>--------------------------------------- */
+
+.about__imagem {
+    width: 40vw;
+    height: 85vh;
+    /* background: #f01111; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about__imagem__foto {
+    width: 410px;
+    height: 410px;
+    animation: imagemVoando 4s ease-in-out infinite;
+    animation-delay: 2.1s;
+}
+
+.about__imagem__foto__animacao {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* background: greenyellow; */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* -----------------------Seção Quem sou eu? <Foto> : Animação--------------------------------------- */
+
+.about__imagem__foto__animacao::after {
+    content: '';
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    background: pink;
+    border-radius: 50%;
+}
+
+.about__imagem__foto__animacao span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(var(--cor-animation), var(--cor-secundaria));
+    border-radius: 50%;
+    animation: circuloGirando 5s linear infinite;
+}
+
+.about__imagem__foto__animacao span:nth-child(1) {
+    filter: blur(10px);
+}
+
+.about__imagem__foto__animacao .about__imagem__foto__animacao__item {
+    position: relative;
+    overflow: hidden;
+    width: 380px;
+    height: 380px;
+    background: red;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.about__imagem__foto__animacao__item img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 380px;
+    object-fit: cover;
+}
+
+/* -----------------------Seção Projetos-------------------------------------------------------- */
+
+.projetos {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/img/pxfuel-opacity05.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+
+.projetos__titulo {
+    width: 80%;
+    height: 10%;
+    /* background: #f01111; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 30px;
+}
+
+/* -----------------------Seção Projetos <imagem>----------------------------------------------- */
+
+.posicionamento__projeto__imagem {
+    width: 100vw;
+    height: 90vh;
+    /* background: greenyellow; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projetos__imagem {
+    width: 80%;
+    height: 80%;
+    /* background: rebeccapurple; */
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.projetos__imagem__ancora {
+    transition: all 0.5s ease-in-out;
+}
+
+.projetos__imagem__item {
+    width: 300px;
+    height: 180px;
+    border-radius: 10px;
+}
+
+/* -----------------------Seção Projetos <imagem> : animação------------------------------------ */
+
+.projetos__imagem__ancora:hover {
+    transform: scale(1.1);
+}
+
+/* -----------------------Seção Projetos <imagem> : decoração----------------------------------- */
+
+.tituloitem_span {
+    color: var(--cor-secundaria);
+}
+
+.tituloitem_span2 {
+    color: rgb(143, 40, 216);
+}
+
+.tituloitem_span3 {
+    color: #00e1ff;
+}
+
+.animation__capa {
+    color: #d8db00;
+}
+
+a {
+    text-decoration: none;
+    color: var(--cor-texto);
+}
+
+/* -----------------------Seção Certificados---------------------------------------------------- */
+
+.certificados {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.certificados__titulo {
+    width: 80%;
+    height: 10vh;
+    /* background: #f01111; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.posicionamento__certificados__imagem {
+    width: 100vw;
+    /* background: greenyellow; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.certificados__imagem {
+    width: 90vw;
+    /* background: rebeccapurple; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.certificados__imagem__pai {
+    width: 75vw;
+    height: 250px;
+    background: rgb(20, 20, 20);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 20px;
+    gap: 30px;
+}
+
+.certificados__imagem__filho__foto {
+    max-width: 350px;
+    min-width: 350px;
+    width: 350px;
+    height: 190px;
+    object-fit: cover;
+    margin: 0 0 0 30px;
+}
+
+.certificados__imagem__filho__informações {
+    width: 50%;
+    height: 190px;
+    /* background: yellowgreen; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.certificados__imagem__filho__informações__span {
+    color: var(--cor-secundaria);
+    font-size: 1.5rem;
+}
+
+/* -----------------------Seção Contato--------------------------------------------------------- */
+
+.contato {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contato__contato__titulo {
+    font-size: 40px;
+    text-align: center;
+}
+
+.contato__contato__form {
+    width: 600px;
+    text-align: center;
+}
+
+.input-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-field {
+    width: 48.5%;
+}
+
+.item {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 2px solid var(--cor-animation);
+    font-size: 16px;
+    color: var(--cor-texto);
+    margin: 12px 0;
+    border-radius: 10px;
+}
+
+.field.error .item {
+    border: 2px solid red;
+}
+
+.field.error .error-txt{
+    display: block;
+}
+
+.textarea-field .item {
+    resize: none;
+}
+
+.buttomContato {
+    padding: 12px 64px;
+    background: var(--cor-secundaria);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--cor-hover);
+    font-size: 16px;
+    color: var(--cor-texto);
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: .5s;
+}
+
+.buttomContato:hover {
+    box-shadow: none;
+    background: var(--cor-animation);
+}
+
+.error-txt {
+    color: red;
+    text-align: left;
+    margin: -5px 0 10px;
+    display: none;
+}
+
+.textarea-field .error-txt {
+    margin-top: -10px;
+}
+
+/* -----------------------Seção Footer---------------------------------------------------------- */
+
+.footer {
+    width: 100vw;
+    height: 5vh;
+    background-color: var(--cor-secundaria);
+    font-size: 0.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: var(--cor-principal);
+}
+
+.footer__texto {
+    margin: 10px;
+}
+
+.footer__name {
+    font-size: 0.75rem;
+    color: var(--cor-texto);
+}
+
+/* -----------------------Botão para o topo----------------------------------------------------- */
+
+#buttonToTop {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 25px;
+    border: none;
+    outline: none;
+    background-color: var(--cor-secundaria);
+    color: white;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 50%;
+}
+
+#buttonToTop:hover {
+    background-color: #ac0a0a;
+}
+
+/* -----------------------Animações------------------------------------------------------------- */
+
+@keyframes slideTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes imagemVoando {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-34px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes circuloGirando {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 1164px) {
+    .projetos {
+        width: 100vw;
+        height: 130vh;
+        background-image: url('/img/pxfuel-opacity05.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .certificados__imagem__filho__informações {
+        width: 40%;
+        height: 190px;
+        /* background: yellowgreen; */
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .certificados__imagem__filho__informações__span {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 1030px) {
+    .container__nav {
+        width: 80%;
+    }
+
+    strong {
+        font-size: 1.74rem;
+    }
+
+    .typer {
+        font-size: 2.49rem;
+    }
+
+    .about {
+        flex-direction: column;
+        height: 80vh;
+    }
+
+    .about__imagem__foto {
+        display: none;
+    }
+
+    .about__texto {
+        width: 80%;
+    }
+}
+
+@media (max-width: 940px) {
+    .certificados__imagem__pai {
+        width: 50vw;
+        height: 450px;
+        background: rgb(20, 20, 20);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .certificados__imagem__filho__foto {
+        max-width: 80%;
+        min-width: 80%;
+        width: 300px;
+        height: 190px;
+        object-fit: cover;
+        margin: 25px 0 0 0;
+    }
+
+    .certificados__imagem__filho__informações {
+        width: 80%;
+        height: 190px;
+        /* background: yellowgreen; */
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .certificados__imagem__filho__informações__span {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container__nav {
+        width: 100%;
+    }
+
+    .container__nav__botao {
+        width: 25%;
+    }
+
+    strong {
+        font-size: 1.56rem;
+    }
+
+    .typer {
+        font-size: 2.24rem;
+    }
+
+    .projetos {
+        height: 240vh;
+    }
+}
+
+@media (max-width: 750px) {
+    .projetos {
+        width: 100vw;
+        height: 250vh;
+        background-image: url('/img/pxfuel-opacity05.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .projetos__imagem {
+        display: flex;
+        gap: 30px;
+    }
+
+    .certificados__imagem__pai {
+        width: 70vw;
+        height: 450px;
+        background: rgb(20, 20, 20);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .certificados__imagem__filho__foto {
+        max-width: 80%;
+        min-width: 80%;
+        width: 300px;
+        height: 190px;
+        object-fit: cover;
+        margin: 25px 0 0 0;
+    }
+
+    .certificados__imagem__filho__informações {
+        width: 80%;
+        height: 150px;
+        /* background: yellowgreen; */
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .certificados__imagem__filho__informações__span {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .texto__mobile {
+        opacity: 1;
+        font-size: 1.5rem;
+    }
+
+    .container {
+        display: none;
+    }
+
+    .typer {
+        display: none;
+    }
+
+    .cursor {
+        display: none;
+    }
+
+    .background__section__texto__posicao__paragrafo {
+        display: none;
+    }
+
+    .background__section video {
+        height: 100%;
+    }
+
+    .about {
+        display: none;
+    }
+
+    .projetos {
+        display: none;
+    }
+
+    .certificados {
+        display: none;
+    }
+
+    .footer {
+        display: none;
+    }
+}
