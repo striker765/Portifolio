@@ -4,10 +4,10 @@
 
 :root {
     --cor-principal: #000000;
-    --cor-principal-hover: #303030;
-    --cor-secundaria: #f10c0c;
-    --cor-hover: #f01111;
-    --cor-animation: #460101;
+    --cor-principal-hover: #ffffff;
+    --cor-secundaria: #0fffff;
+    --cor-hover: #0fffff;
+    --cor-animation: #0011a8;
     --cor-texto: #EEEEEE;
     --montserrat: "Montserrat", "sans-serif";
 }
@@ -73,24 +73,18 @@ body {
     left: 0;
     bottom: -6px;
     width: 100%;
-    height: 3px;
-    background: var(--cor-texto);
-    border-radius: 5px;
-    transform-origin: right;
+    height: 2px;
+    background: #00ffff; /* Cor ciano */
+    border-bottom: 2px dashed transparent;
+    transform-origin: center;
     transform: scaleX(0);
-    transition: transform 0.5s, background-color 0.5s;
-}
-
-.container__nav__botao:hover {
-    color: var(--cor-hover);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .container__nav__botao:hover::after {
-    transform-origin: left;
     transform: scaleX(1);
-    background-color: var(--cor-hover);
+    background-color: #00ffff; /* Cor ciano ao passar o mouse */
 }
-
 /* -----------------------Seção Apresentação com video------------------------------------------ */
 
 .videoBG {
@@ -98,6 +92,7 @@ body {
     height: 100vh;
     position: relative;
     z-index: 0;
+    filter: blur(0px);
 }
 
 .background__section {
@@ -136,6 +131,7 @@ strong {
     font-family: "consolas", "sans-serif";
     color: var(--cor-texto);
     font-size: 2.18rem;
+
 }
 
 /* -----------------------Script typerJS-------------------------------------------------------- */
@@ -576,14 +572,14 @@ a {
     border: none;
     outline: none;
     background-color: var(--cor-secundaria);
-    color: white;
+    color: rgb(0, 0, 0);
     cursor: pointer;
     padding: 12px;
     border-radius: 50%;
 }
 
 #buttonToTop:hover {
-    background-color: #ac0a0a;
+    background-color: #324129;
 }
 
 /* -----------------------Animações------------------------------------------------------------- */
@@ -632,6 +628,7 @@ a {
         background-size: cover;
         background-repeat: no-repeat;
         display: flex;
+        border: 2px inset #e2e2e2;
         flex-direction: column;
     }
 
@@ -740,6 +737,7 @@ a {
         height: 250vh;
         background-image: url('/img/pxfuel-opacity05.png');
         background-size: cover;
+        border: 2px inset #ffffff;
         background-repeat: no-repeat;
         display: flex;
         flex-direction: column;
@@ -753,7 +751,7 @@ a {
     .certificados__imagem__pai {
         width: 70vw;
         height: 450px;
-        background: rgb(20, 20, 20);
+        background: rgb(2, 2, 2);
         display: flex;
         align-items: center;
         flex-direction: column;
