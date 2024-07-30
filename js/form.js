@@ -14,8 +14,8 @@ function enviarEmail() {
     //Código smtpJS
     Email.send({
         SecureToken : "0dcdacc2-c1af-43c0-8ddf-1a07b512ad07",
-        To: 'joaovictorviegas53@gmail.com',
-        From: "joaovictorviegas53@gmail.com",
+        To: '',
+        From: "g",
         Subject: assunto.value,
         Body: corpoMensagem
     }).then(
